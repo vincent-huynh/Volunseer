@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text } from 'react-native-elements';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 
-export default HomeView = ({navigation}) => {
+export default RegistrationView = ({navigation}) => {
     return (
         <SafeAreaView>
             <StatusBar barStyle="dark-content"/>
-            <Text>Home View</Text>
+            <Text>Registration View</Text>
         </SafeAreaView>
     )
 }
