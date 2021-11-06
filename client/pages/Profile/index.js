@@ -20,6 +20,8 @@ export default ProfileView = ({navigation}) => {
 
     const onPressEdit = () => {
         console.log("Press edit profile button");
+
+        navigation.navigate("Edit Profile");
     }
 
     const formatPhoneNum = (number) => {
