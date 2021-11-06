@@ -16,5 +16,6 @@ export const SharedStyles = {
     "rightPageMarginPercent": 5,
     "topPageMargin": 45,
     "elementSpacing": 12,
-    "logoTintColor": "#de2346"
+    "logoTintColor": "#de2346",
+    "rewardsTextColor": "#FFFFFF"
 };
