@@ -4,8 +4,8 @@ import { Input } from 'react-native-elements';
 
 import { SharedStyles } from '../../style';
 
-export default TextInput = ({ placeholder, boxed, onInputChange, secureTextEntry=false }) => {
-    return <Input containerStyle={styles.container} inputStyle={ boxed ? styles.boxed : styles.unboxed } placeholder={ placeholder } onChangeText={(text) => onInputChange(text)} secureTextEntry={secureTextEntry} />
+export default TextInput = ({ placeholder, boxed, onInputChange, secureTextEntry=false, style={} }) => {
+    return <Input containerStyle={[styles.container, style]} inputStyle={ boxed ? styles.boxed : styles.unboxed } placeholder={ placeholder } onChangeText={(text) => onInputChange(text)} secureTextEntry={secureTextEntry} />
 }
 
 const styles = StyleSheet.create({

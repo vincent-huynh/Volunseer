@@ -23,7 +23,10 @@ export default SigninView = ({navigation}) => {
 
     const onPressSignin = () => {
         console.log("Signing in " + email + "; " + password);
-        navigation.push("Volunteer Map");
+        if (global.isOrganization)
+            navigation.push("Org Overview")
+        else
+            navigation.push("Volunteer Map");
     }
 
     const onPressRegister = () => {

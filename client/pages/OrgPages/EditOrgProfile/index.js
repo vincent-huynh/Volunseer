@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StatusBar, View, StyleSheet } from 'react-native';
+import { ScrollView, StatusBar, View } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import PageBody from '../../../components/PageBody';
@@ -7,13 +7,20 @@ import Spacer from '../../../components/Spacer';
 import SelectionButton from '../../../components/SelectionButton';
 import TextInput from '../../../components/TextInput';
 import SubheaderText from '../../../components/SubheaderText';
-import NormalText from '../../../components/NormalText';
-import SubText from '../../../components/SubText';
 
 import { SharedStyles } from '../../../style';
 
-export default OrgProfileView = ({ navigation }) => {
+export default EditOrgProfileView = ({ navigation }) => {
+    const [orgName, setOrgName] = React.useState("");
+    const [orgEmail, setOrgEmail] = React.useState("");
+    const [orgMissionStatement, setOrgMissionStatement] = React.useState("");
+    const [orgAddress, setOrgAddress] = React.useState("");
+
     const tempMissionStatement = "Georgia Tech's mission is to develop leaders who advance technology and improve the human condition. Its mission and strategic plan are focused on making a positive impact in the lives of people everywhere.";
+
+    const onSaveProfile = () => {
+        navigation.pop();
+    }
 
     return <View style={{ flex: 1 }}>
         <StatusBar barStyle="dark-content" />
@@ -24,23 +31,15 @@ export default OrgProfileView = ({ navigation }) => {
         <ScrollView style={{ marginTop: SharedStyles.topPageMargin }}>
             <PageBody>
                 <SubheaderText text="Organization Profile" />
+                <TextInput placeholder="Georgia Institute of Technology" onInputChange={setOrgName} />
+                <TextInput placeholder="random_ord@gatech.edu" onInputChange={setOrgEmail} />
+                <TextInput style={{height: "30%", flexWrap: "wrap"}} placeholder={tempMissionStatement} onInputChange={setOrgMissionStatement} />
+                <TextInput placeholder="NorthAve NW, Atlanta, GA 30332" onInputChange={setOrgAddress} />
                 <Spacer height={SharedStyles.elementSpacing} />
-                <NormalText style={{ textAlign: "center" }} text="Georgia Institute of Technology" />
+                <SelectionButton buttonText="Save Changes" btnOnPress={onSaveProfile} />
                 <Spacer height={SharedStyles.elementSpacing} />
-                <SubText style={styles.textUnderlines} text="random_ord@gatech.edu" />
-                <Spacer height={SharedStyles.elementSpacing} />
-                <SubText style={styles.textUnderlines} style={{flexWrap: "wrap"}} text={tempMissionStatement} />
-                <Spacer height={SharedStyles.elementSpacing} />
-                <SubText style={styles.textUnderlines} text="NorthAve NW, Atlanta, GA 30332" />
-                <Spacer height={SharedStyles.elementSpacing * 2} />
-                <SelectionButton buttonText="Edit Profile" btnOnPress={() => navigation.push("Edit Org Profile")}/>
+                <SelectionButton buttonText="Cancel" btnOnPress={() => navigation.pop() } />
             </PageBody>
         </ScrollView>
     </View>
 }
-
-const styles = StyleSheet.create({
-    textUnderlines: {
-        borderBottomWidth: 1,
-    }
-});

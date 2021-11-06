@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 
 import { SharedStyles } from '../../style';
 
-export default NormalText = ({ text }) => {
-    return <Text h3 h3Style={styles.text}>{ text }</Text>;
+export default NormalText = ({ text, style }) => {
+    return <Text h3 h3Style={[styles.text, style]}>{ text }</Text>;
 }
 
 const styles = StyleSheet.create({

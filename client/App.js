@@ -16,6 +16,10 @@ import RewardsView from "./pages/UserPages/Rewards/index";
 import SigninView from "./pages/Signin/index";
 import EditProfileView from "./pages/UserPages/EditProfile/index";
 import ActivityView from "./pages/UserPages/Activity/index";
+import OrgOverviewView from './pages/OrgPages/OrgOverview/index';
+import OrgProfileView from './pages/OrgPages/OrgProfile/index';
+import EditOrgProfileView from './pages/OrgPages/EditOrgProfile/index';
+import CreateEventView from './pages/OrgPages/CreateEvent/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +37,10 @@ export default function App() {
           <Stack.Screen name='Rewards' component={RewardsView} />
           <Stack.Screen name='Sign In' component={SigninView} />
           <Stack.Screen name="Personal Activity" component={ActivityView} />
+          <Stack.Screen name="Org Overview" component={OrgOverviewView} />
+          <Stack.Screen name="Org Profile" component={OrgProfileView} />
+          <Stack.Screen name="Edit Org Profile" component={EditOrgProfileView} />
+          <Stack.Screen name="Create Event" component={CreateEventView} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
