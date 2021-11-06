@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 import { SharedStyles } from '../../style';
 
 export default SubheaderText = ({ text }) => {
-    return <Text h1>{ text }</Text>;
+    return <Text h1 h1Style={styles.text} >{ text }</Text>;
 }
 
 const styles = StyleSheet.create({

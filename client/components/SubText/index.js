@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 
 import { SharedStyles } from '../../style';
 
-export default SubText = ({ text }) => {
-    return <Text h1>{ text }</Text>;
+export default SubText = ({ text, style }) => {
+    return <Text h4 h4Style={[styles.text, style]}>{ text }</Text>;
 }
 
 const styles = StyleSheet.create({

@@ -1,7 +1,7 @@
 export const SharedStyles = {
     "font": "System",
     "headerSize": 65,
-    "subheaderSize": 50,
+    "subheaderSize": 40,
     "textSize": 28,
     "subTextSize": 17,
     "btnTextSize": 13,
@@ -14,8 +14,8 @@ export const SharedStyles = {
     "headerPosition": "center",
     "leftPageMarginPercent": 5,
     "rightPageMarginPercent": 5,
-    "topPageMargin": 45,
+    "topPageMargin": 40,
     "elementSpacing": 12,
-    "logoTintColor": "#de2346",
+    "logoTintColor": "#50c878",
     "rewardsTextColor": "#FFFFFF"
 };

@@ -23,13 +23,12 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='Rewards' component={RewardsView} />
           <Stack.Screen name='Landing' component={LandingView} />
           <Stack.Screen name='Home' component={HomeView} />
           <Stack.Screen name='Volunteer Map' component={MapView} />
           <Stack.Screen name='My Profile' component={ProfileView} />
           <Stack.Screen name='Register' component={RegisterView} />
-          {/* <Stack.Screen name='Rewards' component={RewardsView} /> */}
+          <Stack.Screen name='Rewards' component={RewardsView} />
           <Stack.Screen name='Sign In' component={SigninView} />
         </Stack.Navigator>
       </NavigationContainer>
