@@ -6,13 +6,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import PageBody from '../../components/PageBody';
-import SubheaderText from '../../components/SubheaderText';
-import NormalText from '../../components/NormalText';
-import SubText from '../../components/SubText';
-import { SharedStyles } from '../../style';
-import PercentProgressBar from '../../components/ProgressBar';
-import Spacer from '../../components/Spacer';
+import PageBody from '../../../components/PageBody';
+import SubheaderText from '../../../components/SubheaderText';
+import NormalText from '../../../components/NormalText';
+import SubText from '../../../components/SubText';
+import { SharedStyles } from '../../../style';
+import PercentProgressBar from '../../../components/ProgressBar';
+import Spacer from '../../../components/Spacer';
 
 export default ActivityView = ({ navigation }) => {
 

@@ -6,15 +6,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import PageBody from '../../components/PageBody';
-import SubheaderText from '../../components/SubheaderText';
-import NormalText from '../../components/NormalText';
-import SubText from '../../components/SubText';
-import Spacer from '../../components/Spacer';
-import SelectionButton from '../../components/SelectionButton';
-import BubbleButton from '../../components/BubbleButton';
+import PageBody from '../../../components/PageBody';
+import SubheaderText from '../../../components/SubheaderText';
+import NormalText from '../../../components/NormalText';
+import SubText from '../../../components/SubText';
+import Spacer from '../../../components/Spacer';
+import SelectionButton from '../../../components/SelectionButton';
+import BubbleButton from '../../../components/BubbleButton';
 
-import { SharedStyles } from '../../style';
+import { SharedStyles } from '../../../style';
 
 
 export default ProfileView = ({ navigation }) => {
@@ -45,7 +45,7 @@ export default ProfileView = ({ navigation }) => {
 
                     <View style={styles.container}>
                         <Spacer height={SharedStyles.elementSpacing} />
-                        <Image style={styles.profiePic} source={require("../../assets/profile.png")} />
+                        <Image style={styles.profiePic} source={require("../../../assets/profile.png")} />
                         <Spacer height={SharedStyles.elementSpacing} />
                         <NormalText text={global.name ?? "Nicholas Zhang"} />
                         <Spacer height={SharedStyles.elementSpacing} />

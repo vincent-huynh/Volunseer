@@ -5,16 +5,16 @@ import { View, Image, StyleSheet, Dimensions, ScrollView, Share } from 'react-na
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 
-import PageBody from '../../components/PageBody';
-import SubheaderText from '../../components/SubheaderText';
-import NormalText from '../../components/NormalText';
-import SubText from '../../components/SubText';
-import Spacer from '../../components/Spacer';
-import SelectionButton from '../../components/SelectionButton';
-import BubbleButton from '../../components/BubbleButton';
-import TextInput from '../../components/TextInput';
+import PageBody from '../../../components/PageBody';
+import SubheaderText from '../../../components/SubheaderText';
+import NormalText from '../../../components/NormalText';
+import SubText from '../../../components/SubText';
+import Spacer from '../../../components/Spacer';
+import SelectionButton from '../../../components/SelectionButton';
+import BubbleButton from '../../../components/BubbleButton';
+import TextInput from '../../../components/TextInput';
 
-import { SharedStyles } from '../../style';
+import { SharedStyles } from '../../../style';
 
 
 export default EditProfileView = ({ navigation }) => {
@@ -57,7 +57,7 @@ export default EditProfileView = ({ navigation }) => {
 
                     <View style={styles.container}>
                         <Spacer height={SharedStyles.elementSpacing} />
-                        <Image style={styles.profiePic} source={require("../../assets/profile.png")} />
+                        <Image style={styles.profiePic} source={require("../../../assets/profile.png")} />
                         <Spacer height={SharedStyles.elementSpacing} />
                         <TextInput placeholder={name} onInputChange={setName} />
                         <TextInput placeholder={email} onInputChange={setEmail} />

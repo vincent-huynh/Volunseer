@@ -9,13 +9,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import LandingView from "./pages/Landing/index";
 import HomeView from "./pages/Home/index";
-import VolunteerMapView from "./pages/Map/index";
-import ProfileView from "./pages/Profile/index";
+import VolunteerMapView from "./pages/UserPages/Map/index";
+import ProfileView from "./pages/UserPages/Profile/index";
 import RegisterView from "./pages/Register/index";
-import RewardsView from "./pages/Rewards/index";
+import RewardsView from "./pages/UserPages/Rewards/index";
 import SigninView from "./pages/Signin/index";
-import EditProfileView from "./pages/EditProfile/index";
-import ActivityView from "./pages/Activity/index";
+import EditProfileView from "./pages/UserPages/EditProfile/index";
+import ActivityView from "./pages/UserPages/Activity/index";
 
 const Stack = createNativeStackNavigator();
 

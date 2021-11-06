@@ -6,11 +6,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import PageBody from '../../components/PageBody';
-import SubheaderText from '../../components/SubheaderText';
-import RewardsList from '../../components/RewardsList';
+import PageBody from '../../../components/PageBody';
+import SubheaderText from '../../../components/SubheaderText';
+import RewardsList from '../../../components/RewardsList';
 
-import { SharedStyles } from '../../style';
+import { SharedStyles } from '../../../style';
 
 export default RewardsView = ({navigation}) => {
     return (

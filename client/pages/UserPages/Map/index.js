@@ -6,13 +6,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import Icon from 'react-native-vector-icons/Octicons';
 
-import PageBody from '../../components/PageBody';
-import SubheaderText from '../../components/SubheaderText';
+import PageBody from '../../../components/PageBody';
+import SubheaderText from '../../../components/SubheaderText';
 import MapView from 'react-native-maps';
 
-import BubbleButton from '../../components/BubbleButton';
-import Spacer from '../../components/Spacer';
-import { SharedStyles } from '../../style';
+import BubbleButton from '../../../components/BubbleButton';
+import Spacer from '../../../components/Spacer';
+import { SharedStyles } from '../../../style';
 
 export default VolunteerMapView = ({ navigation }) => {
 
