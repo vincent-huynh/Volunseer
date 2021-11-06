@@ -40,7 +40,7 @@ export default EditProfileView = ({navigation}) => {
 
         console.log(global.name + " " + global.email + " " + global.phoneNnumber);
 
-        navigation.navigate("My Profile");
+        navigation.push("My Profile");
     }
 
 

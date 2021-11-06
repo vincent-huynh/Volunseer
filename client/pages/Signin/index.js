@@ -14,6 +14,8 @@ import Spacer from '../../components/Spacer';
 
 import { SharedStyles } from '../../style';
 
+import { user } from "../../config";
+
 export default SigninView = ({navigation}) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");

@@ -17,10 +17,14 @@ import { SharedStyles } from "../../style";
 export default LandingView = ({ navigation }) => {
     const onPressVolunteer = () => {
         console.log("Volunteer Button Pressed");
+        global.isOrganization = false;
+        navigation.push("Sign In");
     };
 
     const onPressOrganization = () => {
         console.log("Organization Button Pressed");
+        global.isOrganization = true;
+        navigation.push("Sign In");
     }
 
     return (
