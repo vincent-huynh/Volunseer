@@ -14,6 +14,7 @@ import ProfileView from "./pages/Profile/index";
 import RegisterView from "./pages/Register/index";
 import RewardsView from "./pages/Rewards/index";
 import SigninView from "./pages/Signin/index";
+import EditProfileView from "./pages/EditProfile/index";
 
 
 const Stack = createNativeStackNavigator();
@@ -23,10 +24,12 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Edit Profile" component={EditProfileView} />
           <Stack.Screen name='Landing' component={LandingView} />
           <Stack.Screen name='Home' component={HomeView} />
           <Stack.Screen name='Volunteer Map' component={MapView} />
           <Stack.Screen name='My Profile' component={ProfileView} />
+          {/* <Stack.Screen name="Edit Profile" component={EditProfileView} /> */}
           <Stack.Screen name='Register' component={RegisterView} />
           <Stack.Screen name='Rewards' component={RewardsView} />
           <Stack.Screen name='Sign In' component={SigninView} />
