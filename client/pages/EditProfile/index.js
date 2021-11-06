@@ -17,7 +17,7 @@ import TextInput from '../../components/TextInput';
 import { SharedStyles } from '../../style';
 
 
-export default EditProfileView = ({navigation}) => {
+export default EditProfileView = ({ navigation }) => {
     const formatPhoneNum = (number) => {
         return number.replace(/\D/g, '');
     }
@@ -33,22 +33,23 @@ export default EditProfileView = ({navigation}) => {
             setEmail(global.email ?? "nicholas_zhang@gmail.com");
         if (phoneNumber.length == 0)
             setPhoneNumber(global.phoneNumber ? formatPhoneNum(global.phoneNnumber) : formatPhoneNum("4701111111"));
-        
+
         global.name = name;
         global.email = email;
         global.phoneNnumber = formatPhoneNum(phoneNumber).replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');;
 
         console.log(global.name + " " + global.email + " " + global.phoneNnumber);
 
-        navigation.push("My Profile");
+        navigation.pop();
     }
 
 
     const affiliatedOrgs = global.affiliatedOrgs ?? ["Atlanta Humane Society", "Trees ATL", "Georgia Tech", "ATL United"];
     return (
-        <View style={{flex: 1}}>
-            <ScrollView style={{marginTop: SharedStyles.topPageMargin}}>
-                <StatusBar barStyle="dark-content"/>
+        <View style={{ flex: 1 }}>
+            <StatusBar barStyle="dark-content" />
+
+            <ScrollView style={{ marginTop: SharedStyles.topPageMargin }}>
                 <PageBody>
                     <View>
                         <SubheaderText text="My Profile" />
@@ -56,7 +57,7 @@ export default EditProfileView = ({navigation}) => {
 
                     <View style={styles.container}>
                         <Spacer height={SharedStyles.elementSpacing} />
-                        <Image style={styles.profiePic} source={ require("../../assets/profile.png")} />
+                        <Image style={styles.profiePic} source={require("../../assets/profile.png")} />
                         <Spacer height={SharedStyles.elementSpacing} />
                         <TextInput placeholder={name} onInputChange={setName} />
                         <TextInput placeholder={email} onInputChange={setEmail} />

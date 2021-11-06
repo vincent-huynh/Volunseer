@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text } from 'react-native-elements';
+import { Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
@@ -19,11 +20,15 @@ export default RegistrationView = ({navigation}) => {
 
     const onPressRegister = () => {
         console.log("Press Register Button " + name + " " + email + " " + phoneNumber + " " + organizations);
+        navigation.pop();
     }
 
     return (
         <SafeAreaView>
             <StatusBar barStyle="dark-content"/>
+            <View style={{ position: "absolute", marginTop: 50, marginLeft: 20 }}>
+               <Icon name="back" size={16} color="#000" onPress={() => navigation.pop() }/>
+            </View>
             <PageBody>
                 <SubheaderText text="Register" />
                 <TextInput placeholder="Name" onInputChange={setName} />

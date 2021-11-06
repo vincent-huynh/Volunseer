@@ -13,6 +13,7 @@ import SelectionButton from '../../components/SelectionButton';
 import Spacer from '../../components/Spacer';
 
 import { SharedStyles } from '../../style';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import { user } from "../../config";
 
@@ -22,15 +23,20 @@ export default SigninView = ({navigation}) => {
 
     const onPressSignin = () => {
         console.log("Signing in " + email + "; " + password);
+        navigation.push("Volunteer Map");
     }
 
     const onPressRegister = () => {
         console.log("Signing Up");
+        navigation.push("Register");
     }
 
     return (
         <SafeAreaView>
             <StatusBar barStyle="dark-content"/>
+            <View style={{ position: "absolute", marginTop: 50, marginLeft: 20, zIndex: 1 }}>
+               <Icon name="back" size={16} color="#000" onPress={() => navigation.pop() }/>
+            </View>
 
             <PageBody styles={styles.adjustedPage}>
                 <View style={styles.innerContainer}>

@@ -23,6 +23,11 @@ export default VolunteerMapView = ({ navigation }) => {
         setMenuVisible(!menuVisible);
     }
 
+    const navigateOut = (pageName) => {
+        setMenuVisible(false);
+        navigation.push(pageName);
+    }
+
     return (
         <SafeAreaView>
             <StatusBar barStyle="dark-content" />
@@ -43,11 +48,11 @@ export default VolunteerMapView = ({ navigation }) => {
             <Modal animationType="slide" transparent={true} visible={menuVisible} onRequestClose={() => { setMenuVisible(!menuVisible) }}>
                 <TouchableOpacity style={styles.modalBox} onPress={() => setMenuVisible(false)}>
                     <View style={styles.innerModalBox}>
-                        <BubbleButton style={{ borderRadius: 7 }} buttonText="Rewards" />
+                        <BubbleButton style={{ borderRadius: 7 }} buttonText="Rewards" btnOnPress={() => navigateOut("Rewards")} />
                         <Spacer height={SharedStyles.elementSpacing / 2} />
-                        <BubbleButton style={{ borderRadius: 7 }} buttonText="Personal Activity" />
+                        <BubbleButton style={{ borderRadius: 7 }} buttonText="Personal Activity" btnOnPress={() => navigateOut("Personal Activity")} />
                         <Spacer height={SharedStyles.elementSpacing / 2} />
-                        <BubbleButton style={{ borderRadius: 7 }} buttonText="My Profile" />
+                        <BubbleButton style={{ borderRadius: 7 }} buttonText="My Profile" btnOnPress={() => navigateOut("My Profile")} />
                         <Spacer height={SharedStyles.elementSpacing / 2} />
                         <BubbleButton style={{ borderRadius: 7 }} buttonText="Back" btnOnPress={() => setMenuVisible(false)} />
                         <Spacer height={SharedStyles.elementSpacing / 2} />

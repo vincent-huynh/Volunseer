@@ -4,6 +4,7 @@ import { View, Image, StyleSheet, Dimensions, ScrollView, Share } from 'react-na
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import PageBody from '../../components/PageBody';
 import SubheaderText from '../../components/SubheaderText';
@@ -16,7 +17,7 @@ import BubbleButton from '../../components/BubbleButton';
 import { SharedStyles } from '../../style';
 
 
-export default ProfileView = ({navigation}) => {
+export default ProfileView = ({ navigation }) => {
 
     const onPressEdit = () => {
         console.log("Press edit profile button");
@@ -30,9 +31,13 @@ export default ProfileView = ({navigation}) => {
 
     const affiliatedOrgs = global.affiliatedOrgs ?? ["Atlanta Humane Society", "Trees ATL", "Georgia Tech", "ATL United"];
     return (
-        <View style={{flex: 1}}>
-            <ScrollView style={{marginTop: SharedStyles.topPageMargin}}>
-                <StatusBar barStyle="dark-content"/>
+        <View style={{ flex: 1 }}>
+            <StatusBar barStyle="dark-content" />
+            <View style={{ position: "absolute", marginTop: 50, marginLeft: 20, zIndex: 1 }} >
+                <Icon name="back" size={16} color="#000" onPress={() => navigation.pop()} />
+            </View>
+
+            <ScrollView style={{ marginTop: SharedStyles.topPageMargin }}>
                 <PageBody>
                     <View>
                         <SubheaderText text="My Profile" />
@@ -40,7 +45,7 @@ export default ProfileView = ({navigation}) => {
 
                     <View style={styles.container}>
                         <Spacer height={SharedStyles.elementSpacing} />
-                        <Image style={styles.profiePic} source={ require("../../assets/profile.png")} />
+                        <Image style={styles.profiePic} source={require("../../assets/profile.png")} />
                         <Spacer height={SharedStyles.elementSpacing} />
                         <NormalText text={global.name ?? "Nicholas Zhang"} />
                         <Spacer height={SharedStyles.elementSpacing} />

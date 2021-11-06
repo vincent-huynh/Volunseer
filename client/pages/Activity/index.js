@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import PageBody from '../../components/PageBody';
 import SubheaderText from '../../components/SubheaderText';
@@ -24,6 +25,10 @@ export default ActivityView = ({ navigation }) => {
     return (
         <SafeAreaView>
             <StatusBar barStyle="dark-content" />
+            <View style={{ position: "absolute", marginTop: 50, marginLeft: 20 }}>
+               <Icon name="back" size={16} color="#000" onPress={() => navigation.pop() }/>
+            </View>
+            
             <PageBody>
                 <SubheaderText text="Personal Activity" />
                 <Spacer height={SharedStyles.elementSpacing * 2} />
