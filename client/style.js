@@ -17,5 +17,7 @@ export const SharedStyles = {
     "topPageMargin": 40,
     "elementSpacing": 12,
     "logoTintColor": "#50c878",
-    "rewardsTextColor": "#FFFFFF"
+    "rewardsTextColor": "#FFFFFF",
+    "progressBarColor": "#FF4086",
+    "progressBarShadow": "#FFE7F0"
 };
