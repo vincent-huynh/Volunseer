@@ -12,21 +12,37 @@ import SubText from '../../components/SubText';
 import Spacer from '../../components/Spacer';
 import SelectionButton from '../../components/SelectionButton';
 import BubbleButton from '../../components/BubbleButton';
+import TextInput from '../../components/TextInput';
 
 import { SharedStyles } from '../../style';
 
 
-export default ProfileView = ({navigation}) => {
-
-    const onPressEdit = () => {
-        console.log("Press edit profile button");
-
-        navigation.navigate("Edit Profile");
-    }
-
+export default EditProfileView = ({navigation}) => {
     const formatPhoneNum = (number) => {
-        return number.replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+        return number.replace(/\D/g, '');
     }
+
+    const [name, setName] = React.useState(global.name ?? "Nicholas Zhang");
+    const [email, setEmail] = React.useState(global.email ?? "nicholas_zhang@gmail.com");
+    const [phoneNumber, setPhoneNumber] = React.useState(global.phoneNumber ? formatPhoneNum(global.phoneNnumber) : formatPhoneNum("4701111111"));
+    const onPressSave = () => {
+        console.log("Press save changes");
+        if (name.length == 0)
+            setName(global.name ?? "Nicholas Zhang");
+        if (email.length == 0)
+            setEmail(global.email ?? "nicholas_zhang@gmail.com");
+        if (phoneNumber.length == 0)
+            setPhoneNumber(global.phoneNumber ? formatPhoneNum(global.phoneNnumber) : formatPhoneNum("4701111111"));
+        
+        global.name = name;
+        global.email = email;
+        global.phoneNnumber = formatPhoneNum(phoneNumber).replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');;
+
+        console.log(global.name + " " + global.email + " " + global.phoneNnumber);
+
+        navigation.navigate("My Profile");
+    }
+
 
     const affiliatedOrgs = global.affiliatedOrgs ?? ["Atlanta Humane Society", "Trees ATL", "Georgia Tech", "ATL United"];
     return (
@@ -42,25 +58,22 @@ export default ProfileView = ({navigation}) => {
                         <Spacer height={SharedStyles.elementSpacing} />
                         <Image style={styles.profiePic} source={ require("../../assets/profile.png")} />
                         <Spacer height={SharedStyles.elementSpacing} />
-                        <NormalText text={global.name ?? "Nicholas Zhang"} />
-                        <Spacer height={SharedStyles.elementSpacing} />
-                        <SubText text={global.email ?? "nicholas_zhang@gmail.com"} />
+                        <TextInput placeholder={name} onInputChange={setName} />
+                        <TextInput placeholder={email} onInputChange={setEmail} />
+                        <TextInput placeholder={phoneNumber} onInputChange={setPhoneNumber} />
                         <Spacer height={SharedStyles.elementSpacing / 2} />
-                        <SubText text={global.phoneNumber ? formatPhoneNum(global.phoneNnumber) : formatPhoneNum("4701111111")} />
-                        <Spacer height={SharedStyles.elementSpacing} />
                         <NormalText text="Affiliated Organizations" />
                         <View style={styles.horizontalContainer}>
                             {affiliatedOrgs.map((e, i) => <BubbleButton buttonText={e} btnOnPress={() => console.log("Sample handler")} key={i} style={styles.bubbleContainer} />)}
                         </View>
-                        <Spacer height={SharedStyles.elementSpacing} />
-                        <SelectionButton buttonText="Edit Profile" btnOnPress={onPressEdit} />
+                        <Spacer height={SharedStyles.elementSpacing * 2} />
+                        <SelectionButton buttonText="Save Changes" btnOnPress={onPressSave} />
                     </View>
                 </PageBody>
             </ScrollView>
         </View>
     )
 }
-
 
 const windowsWidth = Dimensions.get('window').width;
 const windowsHeight = Dimensions.get('window').height;
