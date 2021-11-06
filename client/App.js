@@ -28,7 +28,7 @@ export default function App() {
           <Stack.Screen name='My Profile' component={ProfileView} />
           <Stack.Screen name='Register' component={RegisterView} />
           <Stack.Screen name='Rewards' component={RewardsView} />
-          <Stack.Screen name='Sign In' component={SigninView} />
+          {/* <Stack.Screen name='Sign In' component={SigninView} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

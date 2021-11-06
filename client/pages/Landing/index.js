@@ -10,6 +10,7 @@ import HeaderText from "../../components/HeaderText";
 import SubheaderText from "../../components/SubheaderText";
 import PageBody from "../../components/PageBody";
 import Spacer from "../../components/Spacer";
+import Logo from "../../components/Logo";
 
 import { SharedStyles } from "../../style";
 
@@ -19,7 +20,7 @@ export default LandingView = ({ navigation }) => {
     };
 
     const onPressOrganization = () => {
-
+        console.log("Organization Button Pressed");
     }
 
     return (
@@ -35,7 +36,7 @@ export default LandingView = ({ navigation }) => {
                     <Spacer height={SharedStyles.elementSpacing} />
                     <SelectionButton buttonText="Organization" btnOnPress={onPressOrganization} />
                     <Spacer height={40} />
-                    <Image style={styles.logo} source={ require("../../assets/logo.png") } />
+                    <Logo />
                 </View>
             </PageBody>
         </SafeAreaView>
@@ -43,12 +44,6 @@ export default LandingView = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    logo: {
-        width: "75%",
-        height: 200,
-        resizeMode: "contain",
-        tintColor: SharedStyles.logoTintColor
-    },
     innerContainer: {
         alignItems: "center",
     },
