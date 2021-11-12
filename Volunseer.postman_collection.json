@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "538791de-92ae-4c98-8701-b3c737201184",
+		"name": "Volunseer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Development",
+			"item": [
+				{
+					"name": "test if api is alive",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make User Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZGIyMjc3ZTQ2ZGFmMDA3MzI3MTMwIiwiaXNBZG1pbiI6dHJ1ZSwiaXNWb2x1bnRlZXIiOmZhbHNlfSwiaWF0IjoxNjM2Njc3MjI1LCJleHAiOjE2MzcwMzcyMjV9.tGidJEGndqlDSmJ8EBV2-R94urPK_j9EjSMNdlRduXQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/dev/admin/618db2277e46daf007327130",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"dev",
+								"admin",
+								"618db2277e46daf007327130"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Reward",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZGIyMjc3ZTQ2ZGFmMDA3MzI3MTMwIiwiaXNBZG1pbiI6dHJ1ZSwiaXNWb2x1bnRlZXIiOmZhbHNlfSwiaWF0IjoxNjM2Njc3MjI1LCJleHAiOjE2MzcwMzcyMjV9.tGidJEGndqlDSmJ8EBV2-R94urPK_j9EjSMNdlRduXQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Attended an event.\",\n    \"description\": \"Attend your first Volunseer event.\",\n    \"points\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reward by ID (dev)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZGIyMjc3ZTQ2ZGFmMDA3MzI3MTMwIiwiaXNBZG1pbiI6dHJ1ZSwiaXNWb2x1bnRlZXIiOmZhbHNlfSwiaWF0IjoxNjM2Njc3MjI1LCJleHAiOjE2MzcwMzcyMjV9.tGidJEGndqlDSmJ8EBV2-R94urPK_j9EjSMNdlRduXQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/dev/delete_reward/618db85ccdda0d12524151d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"dev",
+								"delete_reward",
+								"618db85ccdda0d12524151d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZGIyMjc3ZTQ2ZGFmMDA3MzI3MTMwIiwiaXNBZG1pbiI6dHJ1ZSwiaXNWb2x1bnRlZXIiOmZhbHNlfSwiaWF0IjoxNjM2Njc3MjI1LCJleHAiOjE2MzcwMzcyMjV9.tGidJEGndqlDSmJ8EBV2-R94urPK_j9EjSMNdlRduXQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/dev/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"dev",
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event by ID (dev)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZGIyMjc3ZTQ2ZGFmMDA3MzI3MTMwIiwiaXNBZG1pbiI6dHJ1ZSwiaXNWb2x1bnRlZXIiOmZhbHNlfSwiaWF0IjoxNjM2Njc3MjI1LCJleHAiOjE2MzcwMzcyMjV9.tGidJEGndqlDSmJ8EBV2-R94urPK_j9EjSMNdlRduXQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/dev/delete_event/618db77348eb1de79a845acd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"dev",
+								"delete_event",
+								"618db77348eb1de79a845acd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Create Volunteer Event",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var dateBody = new Date(\"11/11/2021 2:00:00 PM\");",
+									"postman.setEnvironmentVariable(\"dateBody\", dateBody.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZDhlODkwOWQ5ZGQxZjcxNzY5YmQ2IiwiaXNBZG1pbiI6ZmFsc2UsImlzVm9sdW50ZWVyIjpmYWxzZX0sImlhdCI6MTYzNjY2NzAyOSwiZXhwIjoxNjM3MDI3MDI5fQ.EXvQqFM20BPJ4h_Mgj9ypd9HMxTxwdqdDe4D5XPT3Uk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Clean The Streets, Part 4!\",\n    \"location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [33.759660201914194, -84.38760555958261]\n    },\n    \"date\": \"{{dateBody}}\",\n    \"description\": \"Help clean Atlanta's streets after celebrating the Atlanta Braves' World Series victory! We will provide trash bags.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ALL Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZDY4ZTVjYzRjYWNhNjZhM2M4YTE0IiwiaXNBZG1pbiI6ZmFsc2UsImlzVm9sdW50ZWVyIjp0cnVlfSwiaWF0IjoxNjM2NjU3Mzk5LCJleHAiOjE2MzcwMTczOTl9.PJdv_TcgvvBWwohZZ5wx6avlJP3UD5j09aQtF8u4raA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/events/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"events",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZDY4ZTVjYzRjYWNhNjZhM2M4YTE0IiwiaXNBZG1pbiI6ZmFsc2UsImlzVm9sdW50ZWVyIjp0cnVlfSwiaWF0IjoxNjM2NjU3Mzk5LCJleHAiOjE2MzcwMTczOTl9.PJdv_TcgvvBWwohZZ5wx6avlJP3UD5j09aQtF8u4raA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/events/618d986debc41abdbeb5cfb8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"events",
+								"618d986debc41abdbeb5cfb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RSVP to Event By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZDY4ZTVjYzRjYWNhNjZhM2M4YTE0IiwiaXNBZG1pbiI6ZmFsc2UsImlzVm9sdW50ZWVyIjp0cnVlfSwiaWF0IjoxNjM2NjU3Mzk5LCJleHAiOjE2MzcwMTczOTl9.PJdv_TcgvvBWwohZZ5wx6avlJP3UD5j09aQtF8u4raA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/events/rsvp/618d986debc41abdbeb5cfb8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"events",
+								"rsvp",
+								"618d986debc41abdbeb5cfb8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registration & Login",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@email.com\",\n    \"password\": \"adminpassword\",\n    \"isVolunteer\": false,\n    \"isAdmin\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@email.com\",\n    \"password\": \"adminpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZGIyMjc3ZTQ2ZGFmMDA3MzI3MTMwIiwiaXNBZG1pbiI6dHJ1ZSwiaXNWb2x1bnRlZXIiOmZhbHNlfSwiaWF0IjoxNjM2Njc3MjI1LCJleHAiOjE2MzcwMzcyMjV9.tGidJEGndqlDSmJ8EBV2-R94urPK_j9EjSMNdlRduXQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info (by ID)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZDY4ZTVjYzRjYWNhNjZhM2M4YTE0IiwiaXNBZG1pbiI6ZmFsc2UsImlzVm9sdW50ZWVyIjp0cnVlfSwiaWF0IjoxNjM2NjU3Mzk5LCJleHAiOjE2MzcwMTczOTl9.PJdv_TcgvvBWwohZZ5wx6avlJP3UD5j09aQtF8u4raA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/users/618d8e8909d9dd1f71769bd6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								"618d8e8909d9dd1f71769bd6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rewards",
+			"item": [
+				{
+					"name": "Get ALL Possible Rewards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4ZDY4ZTVjYzRjYWNhNjZhM2M4YTE0IiwiaXNBZG1pbiI6ZmFsc2UsImlzVm9sdW50ZWVyIjp0cnVlfSwiaWF0IjoxNjM2NjU3Mzk5LCJleHAiOjE2MzcwMTczOTl9.PJdv_TcgvvBWwohZZ5wx6avlJP3UD5j09aQtF8u4raA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/rewards/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"rewards",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reward by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/rewards/618db973f2659f638d3e1232",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"rewards",
+								"618db973f2659f638d3e1232"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
