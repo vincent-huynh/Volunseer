@@ -11,19 +11,32 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   avatar: {
     type: String,
-    default: "https://cdn.discordapp.com/attachments/448267962814824470/887452085052919888/blank_profile.png"
+    default:
+      "https://cdn.discordapp.com/attachments/448267962814824470/887452085052919888/blank_profile.png",
   },
   isAdmin: {
     type: Boolean,
     default: false,
   },
   isVolunteer: {
-    type: Boolean
-  }
+    type: Boolean,
+  },
+  rewards: [
+    {
+      reward: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "reward",
+      },
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

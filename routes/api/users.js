@@ -9,10 +9,16 @@ const bcrypt = require("bcryptjs");
 // @route           GET /api/users/me
 // @desc            Get current user info
 // @access          Private
-router.get("/me", auth, (req, res) => {
-  return res.status(200).json({
-    user: req.user,
-  });
+router.get("/me", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    return res.status(200).json(user);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({
+      msg: "Error getting user.",
+    });
+  }
 });
 
 // @route           GET /api/users/:user_id
@@ -20,9 +26,7 @@ router.get("/me", auth, (req, res) => {
 // @access          Private
 router.get("/:user_id", auth, async (req, res) => {
   try {
-    const user = await User.findById(req.params.user_id).select(
-      "-guilds -password -isAdmin"
-    );
+    const user = await User.findById(req.params.user_id).select("-password");
     if (!user) {
       return res
         .status(400)
