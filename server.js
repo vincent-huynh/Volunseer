@@ -20,9 +20,12 @@ connectDB();
 app.get("/", (req, res) => res.send("Reached API!"));
 
 // Routes
-app.use("/api/test", require("./routes/api/test"));
+
+app.use("/api/dev", require("./routes/api/dev"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/events", require("./routes/api/events"));
+app.use("/api/rewards", require("./routes/api/rewards"));
 
 const PORT = process.env.PORT || 3001;
 
