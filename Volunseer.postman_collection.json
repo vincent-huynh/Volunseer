@@ -320,7 +320,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@email.com\",\n    \"password\": \"adminpassword\",\n    \"isVolunteer\": false,\n    \"isAdmin\": true\n}",
+							"raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@email.com\",\n    \"password\": \"adminpassword\",\n    \"isVolunteer\": false\n}",
 							"options": {
 								"raw": {
 									"language": "json"
