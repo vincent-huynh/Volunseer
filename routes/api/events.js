@@ -28,7 +28,8 @@ router.post(
     auth,
     [
       check("name", "Event needs a name").notEmpty(),
-      check("location", "Please include a location").notEmpty(),
+      check("lng", "Please include a lng").notEmpty(),
+      check("lat", "Please include a lat").notEmpty(),
       check("date", "Please include a valid date").isISO8601().toDate(),
       check("description", "Please describe your event").notEmpty(),
     ],
@@ -44,8 +45,11 @@ router.post(
         .status(401)
         .json({ msg: "Unauthorized. Only organizations can create events." });
     }
-    const { name, location, date, description } = req.body;
-
+    const { name, lng, lat, date, description } = req.body;
+    let location = {
+      type: "Point",
+      coordinates: [lng, lat],
+    };
     try {
       const newEvent = await Event.create({
         name,
@@ -63,6 +67,52 @@ router.post(
       console.error(err);
       return res.status(500).json({
         msg: "Error with getting event from database",
+      });
+    }
+  }
+);
+
+// @route           GET /api/events/near
+// @desc            Get events near a geolocation
+// @access          Private
+router.get(
+  "/near",
+  [
+    auth,
+    [
+      check("lng", "Please include a lng").notEmpty(),
+      check("lat", "Please include a lat").notEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+      let { lng, lat, miles } = req.body;
+      if (!miles) {
+        miles = 5;
+      }
+      let center = {
+        type: "Point",
+        coordinates: [lng, lat],
+      };
+
+      let query = {
+        location: {
+          $geoWithin: {
+            $centerSphere: [center.coordinates, miles / 3959],
+          },
+        },
+      };
+
+      let events = await Event.find(query);
+      return res.status(200).json(events);
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({
+        msg: "Something went wrong retrieving events.",
       });
     }
   }
