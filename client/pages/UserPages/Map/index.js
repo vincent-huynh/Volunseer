@@ -6,6 +6,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  TouchableHighlight,
+  Text,
 } from "react-native";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -15,7 +17,7 @@ import Icon from "react-native-vector-icons/Octicons";
 import PageBody from "../../../components/PageBody";
 import SubheaderText from "../../../components/SubheaderText";
 import MapView from "react-native-maps";
-import { Marker } from "react-native-maps";
+import { Marker, Callout } from "react-native-maps";
 
 import BubbleButton from "../../../components/BubbleButton";
 import Spacer from "../../../components/Spacer";
@@ -49,9 +51,6 @@ export default VolunteerMapView = ({ navigation }) => {
       lat: region.latitude,
       miles: 5,
     };
-
-    console.log("searching region:", argsV);
-    console.log("token...", global.token);
     if (global.token) {
       setAuthToken(global.token);
     }
@@ -59,13 +58,15 @@ export default VolunteerMapView = ({ navigation }) => {
       .post("http://159.223.142.127:3001/api/events/near", argsV)
       .then((res) => {
         setMarkers(res.data);
-        console.log("markers", markers);
       })
       .catch((err) => {
         console.error(err.response.data);
       });
   };
 
+  const markerClick = (marker) => {
+    console.log(marker);
+  };
   return (
     <SafeAreaView>
       <StatusBar barStyle='dark-content' />
@@ -91,18 +92,30 @@ export default VolunteerMapView = ({ navigation }) => {
         initialRegion={region}
         onRegionChangeComplete={setRegion}
       >
-        {markers.map((marker, index) => {
+        {markers.map((marker) => {
           let coord = {
             longitude: marker.location.coordinates[0],
             latitude: marker.location.coordinates[1],
           };
           return (
             <Marker
-              key={index}
+              key={marker._id}
               coordinate={coord}
               title={marker.name}
               description={marker.description}
-            />
+            >
+              <Callout tooltip style={styles.customView}>
+                <TouchableHighlight onPress={() => markerClick(marker._id)}>
+                  <View style={styles.customText}>
+                    <Text>
+                      {marker.name}
+                      {"\n"}
+                      {marker.description}
+                    </Text>
+                  </View>
+                </TouchableHighlight>
+              </Callout>
+            </Marker>
           );
         })}
       </MapView>
@@ -174,5 +187,12 @@ const styles = StyleSheet.create({
   map: {
     width: windowWidth,
     height: windowHeight,
+  },
+  customView: {
+    flex: 1,
+    padding: 24,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#eaeaea",
   },
 });
