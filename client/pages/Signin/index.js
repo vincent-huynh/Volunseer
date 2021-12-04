@@ -33,10 +33,14 @@ export default SigninView = ({ navigation }) => {
       })
       .then((res) => {
         global.token = res.data.token;
-        console.log("yes???");
+        if (global.token) {
+          console.log("token", global.token);
+        }
         // allowPass = true;
-        if (global.isOrganization) navigation.push("Org Overview");
-        else navigation.push("Volunteer Map");
+        if (global.token) {
+          if (global.isOrganization) navigation.push("Org Overview");
+          else navigation.push("Volunteer Map");
+        }
       })
       .catch((err) => {
         console.log("how???");
