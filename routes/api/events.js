@@ -72,10 +72,10 @@ router.post(
   }
 );
 
-// @route           GET /api/events/near
+// @route           POST /api/events/near
 // @desc            Get events near a geolocation
 // @access          Private
-router.get(
+router.post(
   "/near",
   [
     auth,
