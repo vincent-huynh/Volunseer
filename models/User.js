@@ -37,6 +37,16 @@ const UserSchema = new mongoose.Schema({
       },
     },
   ],
+  phoneNumber: {
+    type: String,
+  },
+  affiliatedOrganizations: [
+    {
+      name: {
+        type: String,
+      },
+    },
+  ],
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

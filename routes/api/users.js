@@ -41,6 +41,45 @@ router.get("/:user_id", auth, async (req, res) => {
   }
 });
 
+// @route           PUT /api/users
+// @desc            Edit & update user information
+// @access          Private
+router.put("/", auth, async (req, res) => {
+  let { name, email, phoneNumber, affiliatedOrganizations } = req.body;
+
+  try {
+    let user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "This user does not exist." }] });
+    }
+
+    if (email) {
+      user.email = email;
+    }
+
+    if (name) {
+      user.name = name;
+    }
+
+    if (phoneNumber) {
+      user.phoneNumber = phoneNumber;
+    }
+
+    if (affiliatedOrganizations) {
+      user.affiliatedOrganizations = affiliatedOrganizations;
+    }
+
+    await user.save();
+    return res.status(200).json({ msg: "Profile updated." });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Something went wrong on the server...");
+  }
+});
+
 // @route           POST /api/users
 // @desc            Register an account. Make sure you include
 //                  name, email, password, and isVolunteer (boolean)
