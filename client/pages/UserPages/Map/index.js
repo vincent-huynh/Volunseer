@@ -2,6 +2,7 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   View,
+  ScrollView,
   Modal,
   StyleSheet,
   TouchableOpacity,
@@ -16,6 +17,7 @@ import Icon from "react-native-vector-icons/Octicons";
 
 import PageBody from "../../../components/PageBody";
 import SubheaderText from "../../../components/SubheaderText";
+import SubText from "../../../components/SubText";
 import MapView from "react-native-maps";
 import { Marker, Callout } from "react-native-maps";
 
@@ -27,6 +29,8 @@ import setAuthToken from "../../../util/setAuthToken";
 
 export default VolunteerMapView = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
+  const [eventVisible, setEventVisible] = React.useState(false);
+  const [markerData, setMarkerData] = React.useState({});
   const [region, setRegion] = React.useState({
     latitude: 33.7756178,
     longitude: -84.3984737,
@@ -40,9 +44,9 @@ export default VolunteerMapView = ({ navigation }) => {
     setMenuVisible(!menuVisible);
   };
 
-  const navigateOut = (pageName) => {
+  const navigateOut = (pageName, params={}) => {
     setMenuVisible(false);
-    navigation.push(pageName);
+    navigation.push(pageName, params);
   };
 
   const findEventsNearSpot = () => {
@@ -69,20 +73,20 @@ export default VolunteerMapView = ({ navigation }) => {
   };
   return (
     <SafeAreaView>
-      <StatusBar barStyle='dark-content' />
+      <StatusBar barStyle="dark-content" />
       <View style={{ position: "absolute", marginTop: 50, marginLeft: 20 }}>
         <Icon
-          name='three-bars'
+          name="three-bars"
           size={30}
-          color='#000'
+          color="#000"
           onPress={onPressMenuBar}
         />
       </View>
       <PageBody>
-        <SubheaderText text='Volunteer Map' />
+        <SubheaderText text="Volunteer Map" />
         <BubbleButton
           style={{ borderRadius: 7 }}
-          buttonText='search'
+          buttonText="search"
           btnOnPress={findEventsNearSpot}
         />
       </PageBody>
@@ -103,17 +107,21 @@ export default VolunteerMapView = ({ navigation }) => {
               coordinate={coord}
               title={marker.name}
               description={marker.description}
+              onPress={() => {
+                setEventVisible(true);
+                setMarkerData(marker);
+              }}
             >
               <Callout tooltip style={styles.customView}>
-                <TouchableHighlight onPress={() => markerClick(marker._id)}>
+                {/* <TouchableHighlight onPress={() => markerClick(marker._id)}>
                   <View style={styles.customText}>
                     <Text>
-                      {marker.name}
+                      {"Random" + marker.name}
                       {"\n"}
                       {marker.description}
                     </Text>
                   </View>
-                </TouchableHighlight>
+                </TouchableHighlight> */}
               </Callout>
             </Marker>
           );
@@ -121,7 +129,7 @@ export default VolunteerMapView = ({ navigation }) => {
       </MapView>
 
       <Modal
-        animationType='slide'
+        animationType="slide"
         transparent={true}
         visible={menuVisible}
         onRequestClose={() => {
@@ -135,30 +143,55 @@ export default VolunteerMapView = ({ navigation }) => {
           <View style={styles.innerModalBox}>
             <BubbleButton
               style={{ borderRadius: 7 }}
-              buttonText='Rewards'
+              buttonText="Rewards"
               btnOnPress={() => navigateOut("Rewards")}
             />
             <Spacer height={SharedStyles.elementSpacing / 2} />
             <BubbleButton
               style={{ borderRadius: 7 }}
-              buttonText='Personal Activity'
+              buttonText="Personal Activity"
               btnOnPress={() => navigateOut("Personal Activity")}
             />
             <Spacer height={SharedStyles.elementSpacing / 2} />
             <BubbleButton
               style={{ borderRadius: 7 }}
-              buttonText='My Profile'
+              buttonText="My Profile"
               btnOnPress={() => navigateOut("My Profile")}
             />
             <Spacer height={SharedStyles.elementSpacing / 2} />
             <BubbleButton
               style={{ borderRadius: 7 }}
-              buttonText='Back'
+              buttonText="Back"
               btnOnPress={() => setMenuVisible(false)}
             />
             <Spacer height={SharedStyles.elementSpacing / 2} />
           </View>
         </TouchableOpacity>
+      </Modal>
+
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={eventVisible}
+        onRequestClose={() => setEventVisible(!eventVisible)}
+        style={{backgroundColor: "yellow"}}
+        >
+          <TouchableOpacity style={{width: "100%", height: "100%"}} onPress={() => setEventVisible(!eventVisible)}>
+            <TouchableOpacity style={styles.eventModalBox}>
+              <View style={styles.eventInfoBox}>
+                {/* <SubheaderText text={markers.name ?? ""} /> */}
+                {/* <Text>{markerData.name}</Text>
+                <Text>{markerData.description}</Text> */}
+
+                <SubheaderText text={markerData.name} />
+                <Spacer height={20} />
+                <SubText text={markerData.description} />
+                <Spacer height={30} />
+                <BubbleButton style={{ borderRadius: 7, backgroundColor: "deepskyblue", width: "100%"}} btnOnPress={() => {setEventVisible(false); global.markerData = markerData; navigateOut("Event"), {markerData}}} buttonText="Open" />
+              </View>
+            </TouchableOpacity>
+          </TouchableOpacity>
       </Modal>
     </SafeAreaView>
   );
@@ -189,10 +222,33 @@ const styles = StyleSheet.create({
     height: windowHeight,
   },
   customView: {
-    flex: 1,
-    padding: 24,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#eaeaea",
+    // width: "100%",
+    // // flex: 1,
+    // padding: 24,
+    // alignItems: "center",
+    // justifyContent: "center",
+    // // backgroundColor: "#eaeaea",
+    // backgroundColor: "green",
   },
+  eventModalBox: {
+    height: "50%",
+    width: "80%",
+    // margin: "10%",
+    // padding: "5%",
+    // flex: 1,
+    // justifyContent: "flex-end",
+    backgroundColor: "white",
+    position: "absolute",
+    bottom: "25%",
+    left: "10%",
+    borderRadius: 20
+  },
+  eventInfoBox: {
+    // paddingTop: 30,
+    // paddingBottom: 20,
+    padding: 10,
+    // height: "45%",
+    // width: "100%",
+    // justifyContent: "flex-end"
+  }
 });

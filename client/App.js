@@ -13,6 +13,7 @@ import VolunteerMapView from "./pages/UserPages/Map/index";
 import ProfileView from "./pages/UserPages/Profile/index";
 import RegisterView from "./pages/Register/index";
 import RewardsView from "./pages/UserPages/Rewards/index";
+import EventView from "./pages/UserPages/Event/index";
 import SigninView from "./pages/Signin/index";
 import EditProfileView from "./pages/UserPages/EditProfile/index";
 import ActivityView from "./pages/UserPages/Activity/index";
@@ -39,6 +40,7 @@ export default function App() {
           <Stack.Screen name='My Profile' component={ProfileView} />
           <Stack.Screen name='Edit Profile' component={EditProfileView} />
           <Stack.Screen name='Register' component={RegisterView} />
+          <Stack.Screen name="Event" component={EventView} />
           <Stack.Screen name='Rewards' component={RewardsView} />
           <Stack.Screen name='Sign In' component={SigninView} />
           <Stack.Screen name='Personal Activity' component={ActivityView} />
