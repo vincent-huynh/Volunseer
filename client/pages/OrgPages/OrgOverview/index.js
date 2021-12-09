@@ -26,7 +26,7 @@ export default OrgOverviewView = ({ navigation }) => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [events]);
 
   useEffect(() => {
     let eventC = events.map((eve) => eve.name);
