@@ -118,6 +118,28 @@ router.post(
   }
 );
 
+// @route           GET /api/events/all/mine
+// @desc            Get all events that belong to this organization
+// @access          Private
+router.get("/all/mine", auth, async (req, res) => {
+  try {
+    const user = req.user;
+    const events = await Event.find({
+      organization: user.id,
+    });
+
+    if (!events) {
+      return res.status(400).json({ msg: "Event not found" });
+    }
+
+    return res.status(200).json(events);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({
+      msg: "Error getting events!",
+    });
+  }
+});
 // @route           GET /api/events/:event_id
 // @desc            Get a specific event by id
 // @access          Private
