@@ -64,6 +64,66 @@ export default VolunteerMapView = ({ navigation }) => {
       });
   };
 
+  // const sampleRewardsInfo = [
+  //   {
+  //       name: "Reward 1",
+  //       description: "$5 Starbucks",
+  //       points: 70
+  //   },
+  //   {
+  //       name: "Reward 2",
+  //       description: "10% Macy Discount",
+  //       points: 500
+  //   },
+  //   {
+  //       name: "Reward 3",
+  //       description: "$5 Starbucks",
+  //       points: 70
+  //   },
+  //   {
+  //       name: "Reward 4",
+  //       description: "Small Coffee",
+  //       points: 50
+  //   },
+  //   {
+  //       name: "Reward 5",
+  //       description: "Donate $1 to Charity of Choice",
+  //       points: 10
+  //   },
+  //   {
+  //       name: "Reward 6",
+  //       description: "$1 McDonalds",
+  //       points: 30
+  //   },
+  //   {
+  //       name: "Reward 7",
+  //       description: "$10 Gift Card",
+  //       points: 1000
+  //   },
+  //   {
+  //       name: "Reward 8",
+  //       description: "Lottery Entry",
+  //       points: 50
+  //   },
+  //   {
+  //       name: "Reward 9",
+  //       description: "Ice Cream Voucher",
+  //       points: 500
+  //   },
+  // ];
+  // if (global.token) {
+  //   setAuthToken(global.token);
+  // }
+  // sampleRewardsInfo.forEach((item) => {
+  //     axios.post("http://159.223.142.127:3001/api/rewards", item)
+  //     .then((res) => {
+  //         console.log("Added rewards");
+  //     })
+  //     .catch((err) => {
+  //         console.log(err.response.data);
+  //     });
+  // });
+
   const markerClick = (marker) => {
     console.log(marker);
   };

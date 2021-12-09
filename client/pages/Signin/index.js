@@ -50,6 +50,7 @@ export default SigninView = ({ navigation }) => {
         // TODO TODO TODO
         // have some sort of popup here!
       });
+      
   };
 
   const onPressRegister = () => {
@@ -92,7 +93,7 @@ export default SigninView = ({ navigation }) => {
             boxed={false}
           />
           <TextInput
-            placeholder='Passwword'
+            placeholder='Password'
             onInputChange={setPassword}
             boxed={false}
             secureTextEntry={true}
