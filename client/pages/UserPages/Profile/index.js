@@ -32,20 +32,36 @@ export default ProfileView = ({ navigation }) => {
   const [affiliatedOrganizations, setAffiliatedOrganizations] = useState([]);
   useEffect(() => {
     setAuthToken(global.token);
+    let tempName,
+      tempEmail,
+      tempPhoneNumber,
+      tempAO = null;
     axios.get("http://159.223.142.127:3001/api/users/me").then((res) => {
       if (res.data.name) {
-        setName(res.data.name);
+        tempName = res.data.name;
       }
       if (res.data.email) {
-        setEmail(res.data.email);
+        tempEmail = res.data.email;
       }
       if (res.data.phoneNumber) {
-        setPhoneNumber(res.data.phoneNumber);
+        tempPhoneNumber = res.data.phoneNumber;
       }
       if (res.data.affiliatedOrganizations) {
-        setAffiliatedOrganizations(res.data.affiliatedOrganizations);
+        tempAO = res.data.affiliatedOrganizations;
       }
     });
+    if (tempName) {
+      setName(tempName);
+    }
+    if (tempEmail) {
+      setEmail(tempEmail);
+    }
+    if (tempPhoneNumber) {
+      setPhoneNumber(tempPhoneNumber);
+    }
+    if (tempAO) {
+      setAffiliatedOrganizations(tempAO);
+    }
   }, [name, email, phoneNumber, affiliatedOrganizations]);
   const onPressEdit = () => {
     console.log("Press edit profile button");
