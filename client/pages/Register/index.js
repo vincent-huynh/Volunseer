@@ -36,7 +36,7 @@ export default RegistrationView = ({ navigation }) => {
         name,
         email,
         password,
-        isVolunteer: true,
+        isVolunteer: !global.isOrganization,
       })
       .then((res) => {
         global.token = res.data.token;

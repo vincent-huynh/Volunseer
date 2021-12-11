@@ -18,14 +18,17 @@ export default OrgOverviewView = ({ navigation }) => {
     if (global.token) {
       setAuthToken(global.token);
     }
+    let tempEvents;
     axios
       .get("http://159.223.142.127:3001/api/events/all/mine")
       .then((res) => {
-        setEvents(res.data);
+        tempEvents = res.data;
       })
       .catch((err) => {
         console.error(err);
       });
+
+    setEvents(tempEvents);
   }, [events]);
 
   useEffect(() => {
